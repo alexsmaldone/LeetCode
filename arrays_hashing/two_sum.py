@@ -17,3 +17,6 @@ class Solution(object):
             if countS[c] != countT.get(c, 0):
                 return False
         return True
+
+
+# could be made more efficient decrementing count of first hash table
