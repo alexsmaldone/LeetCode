@@ -1,22 +1,16 @@
+
 class Solution(object):
-    def isAnagram(self, s, t):
+    def twoSum(self, nums, target):
         """
-        :type s: str
-        :type t: str
-        :rtype: bool
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
         """
-        if len(s) != len(t):
-            return False
+        prevMap = {}
 
-        countS, countT = {}, {}
-
-        for i in range(len(s)):
-            countS[s[i]] = 1 + countS.get(s[i], 0)
-            countT[t[i]] = 1 + countT.get(t[i], 0)
-        for c in countS:
-            if countS[c] != countT.get(c, 0):
-                return False
-        return True
-
-
-# could be made more efficient decrementing count of first hash table
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            prevMap[n] = i
+        return []
